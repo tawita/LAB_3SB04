@@ -1,0 +1,61 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+    <br>
+    
+    <h1>Web Application</h1>
+    <h1>Lab 3SB04 Web App Framework II (Django)</h1>
+    <h1>5910110091 นางสาวฑวิตา วิชาชัย</h1>
+
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    
+    <form action="{% url 'todo:create' %}" method="post">
+        {% csrf_token %}
+        <!-- Todo Name -->
+        <div class="form-group">
+            <label for="todo" class="col-sm-3 control-label">เพิ่มรายชื่อ</label>
+            
+            <div class="col-sm-6">
+                {{ form.body }}
+            </div>
+            
+        </div>
+
+        <!-- Add Todo Button -->
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-6">
+                <button type="submit" class="btn btn-default">
+                    <i class="fa fa-plus"></i> ยืนยัน
+                </button>
+            </div>
+        </div>
+
+    </form>
+    
+
+    <!-- Current Todos -->
+    <h2>รายชื่อ</h2>
+    <table class="table table-striped todo-table">
+        <thead>
+            <th>"กรุณาตัวสอบความถูกต้องของรายชื่อ"</th><th>&nbsp;</th>
+        </thead>
+
+        <tbody>
+            {% for post in posts %}
+                <tr>
+                    <!-- Todo Name -->
+                    <td>
+                        <div>{{ post.body }}</div>
+                    </td>
+                    <td>
+                        <form action="{% url 'todo:delete' post.id %}" method="post">
+                            {% csrf_token %}
+                            <button>Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+{% endblock %}

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Marvel Studios</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/css?family=Barlow+Condensed:500,800" rel="stylesheet">
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+<style>* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #fff;
+  background-size: 120%;
+  background-position: center;
+  font-family: "Barlow Condensed", sans-serif;
+  -webkit-animation: tighten-vinette ease-out 1800ms forwards;
+          animation: tighten-vinette ease-out 1800ms forwards;
+}
+
+.images {
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  position: absolute;
+  opacity: .6;
+  z-index: 20;
+  background-size: cover;
+  background-position: center;
+  background-repeat: none;
+  background-image: url("https://static.comicvine.com/uploads/original/11124/111240517/4986890-4700382785-29908.jpg");
+}
+
+.wrapper {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  cursor: pointer;
+  text-align: center;
+}
+.logo:hover .restart {
+  opacity: .8;
+}
+
+.restart {
+  color: #000;
+  margin-top: 20px;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: -.08rem;
+  transition: opacity 150ms linear;
+}
+
+.marvel, .studios {
+  position: relative;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -.2rem;
+  font-size: 5rem;
+  margin: .05rem .05rem .5rem;
+  padding: 0 0.4rem;
+  display: inline-block;
+}
+
+.studios {
+  font-weight: 500;
+  letter-spacing: -.3rem;
+  -webkit-transform: translateX(-95px);
+          transform: translateX(-95px);
+}
+
+.marvel {
+  z-index: 10;
+  font-weight: 800;
+  -webkit-transform: translateX(95px);
+          transform: translateX(95px);
+}
+.marvel:before {
+  z-index: -10;
+  content: '';
+  display: block;
+  background-color: #e12835;
+  border: solid rgba(255, 255, 255, 0.2) 1px;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.studios:after, .studios:before {
+  content: '';
+  display: block;
+  height: 3px;
+  position: absolute;
+  display: block;
+  left: 0.4rem;
+  right: 0.4rem;
+}
+
+.studios:before {
+  top: 0;
+}
+.studios:after {
+  bottom: 0;
+}
+
+.wrapper.run-animation {
+  -webkit-animation: shrink ease-out 4800ms forwards 600ms;
+          animation: shrink ease-out 4800ms forwards 600ms;
+}
+.wrapper.run-animation .marvel {
+  -webkit-transform: translateX(95px);
+          transform: translateX(95px);
+  -webkit-animation: slide-out-X 750ms ease forwards;
+          animation: slide-out-X 750ms ease forwards;
+}
+.wrapper.run-animation .studios {
+  -webkit-transform: translateX(-95px);
+          transform: translateX(-95px);
+  color: transparent;
+  -webkit-animation: slide-out-X 750ms ease forwards, show-text 300ms linear forwards 1500ms;
+          animation: slide-out-X 750ms ease forwards, show-text 300ms linear forwards 1500ms;
+}
+.wrapper.run-animation .studios:before {
+  -webkit-transform: translateY(2.9rem);
+          transform: translateY(2.9rem);
+  -webkit-animation: slide-out-Y 300ms ease forwards 750ms;
+          animation: slide-out-Y 300ms ease forwards 750ms;
+}
+.wrapper.run-animation .studios:after {
+  -webkit-transform: translateY(-2.9rem);
+          transform: translateY(-2.9rem);
+  -webkit-animation: slide-out-Y 300ms ease forwards 750ms;
+          animation: slide-out-Y 300ms ease forwards 750ms;
+}
+.wrapper.run-animation .restart {
+  opacity: 0;
+  -webkit-animation: fade-down 1200ms ease 3600ms forwards;
+          animation: fade-down 1200ms ease 3600ms forwards;
+}
+.wrapper.run-animation ~ .images {
+  -webkit-animation: flicker-images 1500ms 2 steps(1, end), fade-out 4500ms forwards;
+          animation: flicker-images 1500ms 2 steps(1, end), fade-out 4500ms forwards;
+}
+
+@-webkit-keyframes slide-out-X {
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes slide-out-X {
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+@-webkit-keyframes slide-out-Y {
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@keyframes slide-out-Y {
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@-webkit-keyframes show-text {
+  100% {
+    color: black;
+  }
+}
+@keyframes show-text {
+  100% {
+    color: black;
+  }
+}
+@-webkit-keyframes shrink {
+  100% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+}
+@keyframes shrink {
+  100% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+}
+@-webkit-keyframes tighten-vinette {
+  100% {
+    background-size: 120%;
+  }
+}
+@keyframes tighten-vinette {
+  100% {
+    background-size: 120%;
+  }
+}
+@-webkit-keyframes fade-down {
+  0% {
+    -webkit-transform: translateY(-2rem);
+            transform: translateY(-2rem);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: .5;
+  }
+}
+@keyframes fade-down {
+  0% {
+    -webkit-transform: translateY(-2rem);
+            transform: translateY(-2rem);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: .5;
+  }
+}
+@-webkit-keyframes fade-out {
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fade-out {
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes flicker-images {
+  0% {
+    background-image: url("https://scontent.fbkk2-1.fna.fbcdn.net/v/t1.0-9/39105185_2035764933154707_1468079822465925120_n.jpg?_nc_cat=105&oh=65e4f999b857e5a0340b4d1e7a22bb81&oe=5C2205F3");
+  }
+  10% {
+    background-image: url("https://scontent.fbkk2-1.fna.fbcdn.net/v/t1.0-9/41252340_2069101083154425_7507909661576658944_n.jpg?_nc_cat=109&oh=c37138c487e43bbe675b2ee531ff5f60&oe=5C61735F");
+  }
+  20% {
+    background-image: url("https://scontent.fbkk2-1.fna.fbcdn.net/v/t1.0-9/41252340_2069101083154425_7507909661576658944_n.jpg?_nc_cat=109&oh=c37138c487e43bbe675b2ee531ff5f60&oe=5C61735F");
+  }
+  30% {
+    background-image: url("https://scontent.fbkk2-1.fna.fbcdn.net/v/t1.0-9/25399193_1737661876298349_3678368871556036430_n.jpg?_nc_cat=111&oh=47af61f7d9ec246a616ea5a2b0220f92&oe=5C249887");
+  }
+  40% {
+    background-image: url("https://scontent.fbkk2-1.fna.fbcdn.net/v/t1.0-9/14502708_1272145386183336_8863864108653966219_n.jpg?_nc_cat=100&oh=e4afa67c03cc62869f7042e2e75c17ca&oe=5C21371B");
+  }
+  50% {
+    background-image: url("https://scontent.fbkk2-1.fna.fbcdn.net/v/t1.0-9/13342947_1171249146272961_7588237348031320892_n.jpg?_nc_cat=110&oh=a12419d618de8acf098c2f3a79d2948a&oe=5C232557");
+  }
+  60% {
+    background-image: url("https://scontent.fbkk2-1.fna.fbcdn.net/v/t1.0-9/21272472_277977712718584_7111145927301360529_n.jpg?_nc_cat=105&oh=91b598ccd01d21637404cd4be033dec0&oe=5C1C63DD");
+  }
+  70% {
+    background-image: url("https://scontent.fbkk2-1.fna.fbcdn.net/v/t1.0-9/14100322_1087715584641829_439263741056975935_n.jpg?_nc_cat=107&oh=9346837bfcb94ed97743381d4fb0947a&oe=5C159084");
+  }
+  80% {
+    background-image: url("https://scontent.fbkk2-1.fna.fbcdn.net/v/t1.0-9/21151570_1523370304368557_326942390078169898_n.jpg?_nc_cat=111&oh=387a4bf0a82b5aa6bf52fa2a4bc1ae8e&oe=5C2D82D9");
+  }
+  90% {
+    background-image: url("https://scontent.fbkk2-1.fna.fbcdn.net/v/t1.0-9/29573050_1839078802825036_855709387591281374_n.jpg?_nc_cat=100&oh=87468ceae4ab8209e89c10812fa11a16&oe=5C2C8048");
+  }
+  100% {
+    background-image: url("https://scontent.fbkk2-1.fna.fbcdn.net/v/t1.0-9/34512491_1742589489158003_6308387946491805696_n.jpg?_nc_cat=103&oh=0ead6344dd7f0bc4c94c2eae85613833&oe=5C1D5927");
+  }
+}
+@keyframes flicker-images {
+  0% {
+    background-image: url("https://scontent.fbkk2-1.fna.fbcdn.net/v/t1.0-9/39105185_2035764933154707_1468079822465925120_n.jpg?_nc_cat=105&oh=65e4f999b857e5a0340b4d1e7a22bb81&oe=5C2205F3");
+  }
+  10% {
+    background-image: url("https://scontent.fbkk2-1.fna.fbcdn.net/v/t1.0-9/41252340_2069101083154425_7507909661576658944_n.jpg?_nc_cat=109&oh=c37138c487e43bbe675b2ee531ff5f60&oe=5C61735F");
+  }
+  20% {
+    background-image: url("https://scontent.fbkk2-1.fna.fbcdn.net/v/t1.0-9/41252340_2069101083154425_7507909661576658944_n.jpg?_nc_cat=109&oh=c37138c487e43bbe675b2ee531ff5f60&oe=5C61735F");
+  }
+  30% {
+    background-image: url("https://scontent.fbkk2-1.fna.fbcdn.net/v/t1.0-9/25399193_1737661876298349_3678368871556036430_n.jpg?_nc_cat=111&oh=47af61f7d9ec246a616ea5a2b0220f92&oe=5C249887");
+  }
+  40% {
+    background-image: url("https://scontent.fbkk2-1.fna.fbcdn.net/v/t1.0-9/14502708_1272145386183336_8863864108653966219_n.jpg?_nc_cat=100&oh=e4afa67c03cc62869f7042e2e75c17ca&oe=5C21371B");
+  }
+  50% {
+    background-image: url("https://scontent.fbkk2-1.fna.fbcdn.net/v/t1.0-9/13342947_1171249146272961_7588237348031320892_n.jpg?_nc_cat=110&oh=a12419d618de8acf098c2f3a79d2948a&oe=5C232557");
+  }
+  60% {
+    background-image: url("https://scontent.fbkk2-1.fna.fbcdn.net/v/t1.0-9/21272472_277977712718584_7111145927301360529_n.jpg?_nc_cat=105&oh=91b598ccd01d21637404cd4be033dec0&oe=5C1C63DD");
+  }
+  70% {
+    background-image: url("https://scontent.fbkk2-1.fna.fbcdn.net/v/t1.0-9/14100322_1087715584641829_439263741056975935_n.jpg?_nc_cat=107&oh=9346837bfcb94ed97743381d4fb0947a&oe=5C159084");
+  }
+  80% {
+    background-image: url("https://scontent.fbkk2-1.fna.fbcdn.net/v/t1.0-9/21151570_1523370304368557_326942390078169898_n.jpg?_nc_cat=111&oh=387a4bf0a82b5aa6bf52fa2a4bc1ae8e&oe=5C2D82D9");
+  }
+  90% {
+    background-image: url("https://scontent.fbkk2-1.fna.fbcdn.net/v/t1.0-9/29573050_1839078802825036_855709387591281374_n.jpg?_nc_cat=100&oh=87468ceae4ab8209e89c10812fa11a16&oe=5C2C8048");
+  }
+  100% {
+    background-image: url("https://scontent.fbkk2-1.fna.fbcdn.net/v/t1.0-9/34512491_1742589489158003_6308387946491805696_n.jpg?_nc_cat=103&oh=0ead6344dd7f0bc4c94c2eae85613833&oe=5C1D5927");
+  }
+}
+</style>
+<body>
+
+  <div class="wrapper run-animation" id="animate">
+	<div class="logo">
+
+		<span class="marvel">240-302</span>
+		<span class="studios">	Lab 3SB04 Web App Framework II (Django)</span>
+		
+		 
+		
+		
+		<div class="restart">ENTER</div>
+	</div>
+</div>
+
+<div class="images"></div>
+  
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
